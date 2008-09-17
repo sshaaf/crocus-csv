@@ -1,0 +1,4 @@
+MANIFEST = Manifest.default
+
+JAR_CONTENT  = \
+	com/crocus/examples/csv/**
