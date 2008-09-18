@@ -1,0 +1,15 @@
+HOW TO:
+1. The most simplest way to read the file is as follows.
+	Crocus crocus = new Crocus(fileName, CSVConstants.TAB);
+        CSVRecordManager manager = crocus.read();
+
+
+2. Ok read it: now how to see what has been read.
+	
+       
+    	for (int rowIndex = 0;rowIndex < manager.getRowCount();rowIndex++) {
+            String temp = manager.getField(rowIndex, 4).toString();
+    	}
+
+for further information refer to the docs.
+

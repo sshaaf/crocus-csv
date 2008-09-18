@@ -26,4 +26,9 @@ public abstract class CSVRecordManager extends AbstractCSVRecordManager{
      * @return CSVField
      */
     public abstract CSVField getConvertField(int rowIndex, int columnIndex,int FIELD);
+    
+    
+    public abstract boolean isMultipleFileSupported();
+    
+    public abstract void setMultipleFileSupported(boolean isEnabled);
 }

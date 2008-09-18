@@ -12,8 +12,6 @@ package com.crocus.examples.csv;
  * @author M Shaaf
  * @email shaaf.m@gmail.com
  */
-import com.crocus.examples.csv.fields.CSVField;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.File;

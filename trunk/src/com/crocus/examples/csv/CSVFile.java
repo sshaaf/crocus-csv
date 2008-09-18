@@ -1,5 +1,6 @@
 package com.crocus.examples.csv;
 
+import com.crocus.examples.csv.record.AbstractCSVRecordManager;
 import com.crocus.examples.csv.record.CSVRecordManager;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -17,7 +18,7 @@ import java.io.IOException;
  * @email shaaf.m@gmail.com
  */
 public interface CSVFile {
-    public CSVRecordManager getCSVRecordManager();
+    public AbstractCSVRecordManager getCSVRecordManager();
     public void openFile() throws FileNotFoundException;
     public void write() throws IOException;
     public char getDeliminator();
