@@ -90,18 +90,18 @@ public class CSVRecordImpl extends CSVRecord{
     }
 
     public String toString(){
-        String tempString = null;
+        String tempString = fieldList.get(0).toString();
         for( int i = 0; i<this.getColumnCount();i++){
-            tempString += fieldList.get(i)+",";
+        	tempString 	+= ","+fieldList.get(i);
 
         }
         return tempString;
     }
 
     public String toString(char deliminator){
-        String tempString = null;
+    	String tempString = fieldList.get(0).toString();
         for( int i = 0; i<this.getColumnCount();i++){
-            tempString += fieldList.get(i)+""+deliminator;
+            tempString += deliminator+""+fieldList.get(i);
 
         }
         return tempString;

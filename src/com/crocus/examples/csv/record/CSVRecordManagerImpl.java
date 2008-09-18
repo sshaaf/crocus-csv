@@ -17,14 +17,17 @@ import com.crocus.examples.csv.fields.FieldFactory;
  * @author M Shaaf
  * @email shaaf.m@gmail.com
  */
+
+
 public class CSVRecordManagerImpl extends CSVRecordManager {
 
-    private ArrayList<CSVRecord> recordList;
+	private ArrayList<CSVRecord> recordList;
 
     private int ROW_COUNT = 0;
 
     private int COLUMN_COUNT = 0;
 
+    private boolean isMultipleFileSupported = false;
 //    private static CSVRecordManagerImpl manager;
 
     protected CSVRecordManagerImpl() {
@@ -180,4 +183,20 @@ public class CSVRecordManagerImpl extends CSVRecordManager {
                 getColumn(columnIndex)).getType());
     }
 
+	/**
+	 * @return the isMultipleFileSupported
+	 */
+	public boolean isMultipleFileSupported() {
+		return isMultipleFileSupported;
+	}
+
+	/**
+	 * @param isMultipleFileSupported the isMultipleFileSupported to set
+	 */
+	public void setMultipleFileSupported(boolean isMultipleFileSupported) {
+		this.isMultipleFileSupported = isMultipleFileSupported;
+	}
+
+    
+    
 }

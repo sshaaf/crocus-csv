@@ -15,6 +15,8 @@ package com.crocus.examples.csv;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+
+import com.crocus.examples.csv.record.AbstractCSVRecordManager;
 import com.crocus.examples.csv.record.CSVRecordManager;
 import com.crocus.examples.csv.record.RecordManagerFactory;
 import java.io.IOException;
@@ -28,7 +30,7 @@ public class CSVFileImpl extends File implements CSVFile {
 
     private boolean isLocked = false;
 
-    private CSVRecordManager csvRecordManager = null;
+    private AbstractCSVRecordManager csvRecordManager = null;
 
     private FileWriter fWriter = null;
 
@@ -58,7 +60,7 @@ public class CSVFileImpl extends File implements CSVFile {
      * @param csvRecordManager CSVRecordManager
      * @throws FileNotFoundException
      */
-    public CSVFileImpl(String fileName,char deliminator, CSVRecordManager csvRecordManager) throws
+    public CSVFileImpl(String fileName,char deliminator, AbstractCSVRecordManager csvRecordManager) throws
             FileNotFoundException {
         super(fileName);
         this.deliminator = deliminator;
@@ -95,7 +97,7 @@ public class CSVFileImpl extends File implements CSVFile {
         return isLocked;
     }
 
-    public CSVRecordManager getCSVRecordManager() {
+    public AbstractCSVRecordManager getCSVRecordManager() {
         return csvRecordManager;
     }
 
