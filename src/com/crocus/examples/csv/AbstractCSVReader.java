@@ -18,14 +18,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-
 public abstract class AbstractCSVReader extends BufferedReader {
 
-    protected StringBuffer currentLine;
+	protected StringBuffer currentLine;
 
-    public AbstractCSVReader(CSVFile file) throws FileNotFoundException {
-        super(new FileReader((File) file));
-    }
+	public AbstractCSVReader(CSVFile file) throws FileNotFoundException {
+		super(new FileReader((File) file));
+	}
 
-    public abstract boolean readNextLine() throws IOException;
+	public abstract boolean readNextLine() throws IOException;
 }

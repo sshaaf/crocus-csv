@@ -7,6 +7,7 @@ import com.crocus.examples.csv.record.AbstractCSVRecordManager;
 
 public interface CSVReadInterface {
 
-	public AbstractCSVRecordManager read() throws IOException,FileNotFoundException;
-	
+	public AbstractCSVRecordManager read() throws IOException,
+			FileNotFoundException;
+
 }

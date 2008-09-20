@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="javadoc">
+<target name="javadoc">
+<javadoc access="public" author="true" classpath="/media/data/apps/eclipse/plugins/org.junit_3.8.2.v20080602-1318/junit.jar" destdir="doc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="com.crocus.examples.csv.event,com.crocus.examples.csv.tests,com.crocus.examples.csv.fields,com.crocus.examples.csv,com.crocus.examples.csv.cmd,com.crocus.examples.csv.record" source="1.6" sourcepath="src" splitindex="true" use="true" version="true"/>
+</target>
+</project>

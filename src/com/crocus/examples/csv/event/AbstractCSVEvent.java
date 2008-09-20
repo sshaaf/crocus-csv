@@ -2,7 +2,7 @@ package com.crocus.examples.csv.event;
 
 import java.util.EventObject;
 
-public abstract class AbstractCSVEvent extends EventObject{
+public abstract class AbstractCSVEvent extends EventObject {
 
 	/**
 	 * 

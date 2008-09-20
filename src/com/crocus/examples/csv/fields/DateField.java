@@ -18,38 +18,43 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 
-public class DateField extends Date implements CSVField{
+public class DateField extends Date implements CSVField {
 
-    private Date date;
+	private Date date;
 
-    private DateFormat dateFormat;// = new SimpleDateFormat("MM/dd/yyyy");
-    /**
-     *
-     * @param date String
-     */
-    public DateField(String date) throws ParseException {
-        dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-            this.date = (Date) dateFormat.parse(date);
-    }
-    /**
-     *
-     * @return int
-     */
-    public int getType() {
-        return FieldConstants.SIMPLE_DATE;
-    }
-    /**
-     *
-     * @return Object
-     */
-    public Object getValue() {
-        return date;
-    }
-    /**
-     *
-     * @return String
-     */
-    public String toString(){
-        return date.toString();
-    }
+	private DateFormat dateFormat;// = new SimpleDateFormat("MM/dd/yyyy");
+
+	/**
+	 * 
+	 * @param date
+	 *            String
+	 */
+	public DateField(String date) throws ParseException {
+		dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		this.date = (Date) dateFormat.parse(date);
+	}
+
+	/**
+	 * 
+	 * @return int
+	 */
+	public int getType() {
+		return FieldConstants.SIMPLE_DATE;
+	}
+
+	/**
+	 * 
+	 * @return Object
+	 */
+	public Object getValue() {
+		return date;
+	}
+
+	/**
+	 * 
+	 * @return String
+	 */
+	public String toString() {
+		return date.toString();
+	}
 }

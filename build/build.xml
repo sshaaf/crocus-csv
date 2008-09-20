@@ -139,7 +139,7 @@
 		<delete dir="${docs}" />
 		<mkdir dir="${docs}" />
 		<echo message="creating java docs" />
-		<javadoc sourcepath="${src}" packagenames="com.shaafshah.examples.*" Verbose="false" maxmemory="512m" link="http://java.sun.com/j2se/1.5.0/docs/api/" destDir="${docs}" Windowtitle="${WINDOWTITLE}" doctitle="${DOCTITLE}" use="true" stylesheetfile="${tools}/styles/stylesheet.css" footer="Crocus - The First Flower of Spring">
+		<javadoc sourcepath="${src}" packagenames="com.crocus.examples.csv.*" Verbose="false" maxmemory="512m" link="http://java.sun.com/j2se/1.5.0/docs/api/" destDir="${docs}" Windowtitle="${WINDOWTITLE}" doctitle="${DOCTITLE}" use="true" stylesheetfile="${tools}/styles/stylesheet.css" footer="Crocus - The First Flower of Spring">
 			<classpath refid="CROCUS.classpath" />
 			<tag name="email" scope="all" description="Email:" />
 		</javadoc>
