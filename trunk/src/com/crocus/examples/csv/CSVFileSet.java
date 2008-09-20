@@ -7,7 +7,6 @@ import java.util.Collection;
 import com.crocus.examples.csv.record.AbstractCSVRecordManager;
 import com.crocus.examples.csv.record.RecordManagerFactory;
 
-
 public class CSVFileSet extends AbstractCSVFileSet {
 
 	private ArrayList<CSVFile> list = null;
@@ -16,7 +15,8 @@ public class CSVFileSet extends AbstractCSVFileSet {
 
 	public CSVFileSet() {
 		list = new ArrayList<CSVFile>();
-		recordManager = RecordManagerFactory.getInstance().getDefaultRecordManager();
+		recordManager = RecordManagerFactory.getInstance()
+				.getDefaultRecordManager();
 
 	}
 
@@ -46,7 +46,7 @@ public class CSVFileSet extends AbstractCSVFileSet {
 	}
 
 	@Override
-	public Collection getFiles() {
+	public Collection<CSVFile> getFiles() {
 		// TODO Auto-generated method stub
 		return this.list;
 	}

@@ -1,58 +1,68 @@
 package com.crocus.examples.csv.fields;
 
 /**
- * <p>Title: </p>
- *
- * <p>Description: </p>
- *
- * <p>Copyright: </p>
- *
- * <p>Company: </p>
- *
+ * <p>
+ * Title:
+ * </p>
+ * 
+ * <p>
+ * Description:
+ * </p>
+ * 
+ * <p>
+ * Copyright:
+ * </p>
+ * 
+ * <p>
+ * Company:
+ * </p>
+ * 
  * @author M Shaaf
  * @email shaaf.m@gmail.com
  */
 public class StringField implements CSVField {
 
-    private String value = null;
-    /**
-     *
-     * @param value String
-     */
-    public StringField(String value) {
-        this.value = value;
-    }
+	private String value = null;
 
-    /**
-     *
-     * @return int
-     */
-    public int getType() {
-        return FieldConstants.STRING;
-    }
+	/**
+	 * 
+	 * @param value
+	 *            String
+	 */
+	public StringField(String value) {
+		this.value = value;
+	}
 
-    /**
-     *
-     * @return Object
-     */
-    public Object getValue() {
-        return value;
-    }
+	/**
+	 * 
+	 * @return int
+	 */
+	public int getType() {
+		return FieldConstants.STRING;
+	}
 
-    /**
-     *
-     * @return String
-     */
-    public String getString() {
-        return value;
-    }
+	/**
+	 * 
+	 * @return Object
+	 */
+	public Object getValue() {
+		return value;
+	}
 
-    /**
-     *
-     * @return String
-     */
-    public String toString() {
-        return value;
-    }
+	/**
+	 * 
+	 * @return String
+	 */
+	public String getString() {
+		return value;
+	}
+
+	/**
+	 * 
+	 * @return String
+	 */
+	public String toString() {
+		return value;
+	}
 
 }

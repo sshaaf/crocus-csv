@@ -6,10 +6,11 @@ import junit.framework.TestSuite;
 public class AllTests {
 
 	public static Test suite() {
-		TestSuite suite = new TestSuite("Test for com.crocus.examples.csv.tests");
-		//$JUnit-BEGIN$
+		TestSuite suite = new TestSuite(
+				"Test for com.crocus.examples.csv.tests");
+		// $JUnit-BEGIN$
 		suite.addTest(new TestCrocus());
-		//$JUnit-END$
+		// $JUnit-END$
 		return suite;
 	}
 

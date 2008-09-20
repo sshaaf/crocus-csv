@@ -12,44 +12,44 @@ import com.crocus.examples.csv.event.RecordEvent;
 import com.crocus.examples.csv.event.RecordListener;
 import com.crocus.examples.csv.record.AbstractCSVRecordManager;
 
-
 import junit.framework.TestCase;
 
-public class TestCrocus extends TestCase implements RecordListener{
+public class TestCrocus extends TestCase implements RecordListener {
 
 	public void testRead() throws FileNotFoundException, IOException {
-		
-		
-		CSVSingleFileInterface fileInterface = new CSVSingleFileInterface("/media/data/dev/workspace/crocus/testData/drupal-sample.csv",CSVConstants.COMMA);
-		
+
+		CSVSingleFileInterface fileInterface = new CSVSingleFileInterface(
+				"/media/data/dev/workspace/crocus/testData/drupal-sample.csv",
+				CSVConstants.COMMA);
+
 		AbstractCSVRecordManager manager = fileInterface.getRecordManager();
-		
+
 		manager.addRecordListener(this);
-		
+
 		manager = fileInterface.read();
-		
-		
+
 		System.out.println(manager.getAllRecords());
-		
+
 		AbstractCSVFileSet fileSet = new CSVFileSet();
-		
+
 		CSVFileSetInterface fileSetInterface = new CSVFileSetInterface(fileSet);
-		
-		fileSet.addFile("/media/data/dev/workspace/crocus/testData/drupal-sample.csv");
-		fileSet.addFile("/media/data/dev/workspace/crocus/testData/countries.csv");
-		
-        System.out.println("Reading");
-        AbstractCSVRecordManager manager1 = fileSetInterface.read();
-		
-        System.out.println(manager.getAllRecords());
+
+		fileSet
+				.addFile("/media/data/dev/workspace/crocus/testData/drupal-sample.csv");
+		fileSet
+				.addFile("/media/data/dev/workspace/crocus/testData/countries.csv");
+
+		System.out.println("Reading");
+		AbstractCSVRecordManager manager1 = fileSetInterface.read();
+
+		System.out.println(manager.getAllRecords());
 
 		fail("Not yet implemented");
 	}
 
-	@Override
 	public void eventPerformed(RecordEvent recordEvent) {
 		System.out.println(recordEvent.toString());
-		
+
 	}
 
 }
