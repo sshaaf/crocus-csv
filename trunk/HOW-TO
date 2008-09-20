@@ -1,15 +1,24 @@
 HOW TO:
-1. The most simplest way to read the file is as follows.
-	Crocus crocus = new Crocus(fileName, CSVConstants.TAB);
-        CSVRecordManager manager = crocus.read();
 
 
-2. Ok read it: now how to see what has been read.
+Reading Single CSVFile into a RecordManager
+
+		CSVSingleFileInterface fileInterface = new CSVSingleFileInterface("/media/data/dev/workspace/crocus/testData/drupal-sample.csv",CSVConstants.COMMA);
+		
+		AbstractCSVRecordManager manager = fileInterface.read();
 	
-       
-    	for (int rowIndex = 0;rowIndex < manager.getRowCount();rowIndex++) {
-            String temp = manager.getField(rowIndex, 4).toString();
-    	}
+
+Reading multiple files into one RecordManager
+
+		AbstractCSVFileSet fileSet = new CSVFileSet();
+		
+		CSVFileSetInterface fileSetInterface = new CSVFileSetInterface(fileSet);
+		
+		fileSet.addFile("testData/drupal-sample.csv");
+		fileSet.addFile("testData/countries.csv");
+		
+        AbstractCSVRecordManager manager = fileSetInterface.read();
+
 
 for further information refer to the docs.
 

@@ -12,10 +12,17 @@ package com.crocus.examples.csv.record;
  * @author M Shaaf
  * @email shaaf.m@gmail.com
  */
+import java.io.Serializable;
+
 import com.crocus.examples.csv.fields.CSVField;
 
-public abstract class CSVRecord {
-    public CSVRecord() {
+public abstract class CSVRecord implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 9094172675032236917L;
+	
+	public CSVRecord() {
     }
     /**
      *

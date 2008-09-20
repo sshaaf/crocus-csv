@@ -17,10 +17,16 @@ import java.util.ArrayList;
  */
 public class CSVRecordImpl extends CSVRecord{
 
-    private ArrayList<CSVField> fieldList = null;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 2244986568046868067L;
+	
+	private ArrayList<CSVField> fieldList = null;
 
     public CSVRecordImpl() {
         fieldList = new ArrayList();
+        
     }
     /**
      *
