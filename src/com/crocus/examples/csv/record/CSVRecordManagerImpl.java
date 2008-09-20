@@ -2,6 +2,8 @@ package com.crocus.examples.csv.record;
 
 import java.util.Collection;
 import java.util.ArrayList;
+
+import com.crocus.examples.csv.event.RecordEvent;
 import com.crocus.examples.csv.fields.CSVField;
 import com.crocus.examples.csv.fields.FieldFactory;
 
@@ -20,6 +22,11 @@ import com.crocus.examples.csv.fields.FieldFactory;
 
 
 public class CSVRecordManagerImpl extends CSVRecordManager {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6048023925794149445L;
 
 	private ArrayList<CSVRecord> recordList;
 
@@ -49,10 +56,20 @@ public class CSVRecordManagerImpl extends CSVRecordManager {
      * @param record CSVRecord
      */
     public void addRecord(CSVRecord record) {
+    	
+    	RecordEvent recordEvent = new RecordEvent(this,RecordEvent.PRE_RECORD_ADDED);
+    	
+    	sendEvent(recordEvent);
+    	
         recordList.add(record);
         if (record.getColumnCount() > COLUMN_COUNT)
             COLUMN_COUNT = record.getColumnCount();
         ROW_COUNT++;
+        
+        recordEvent.setRecordKey(ROW_COUNT);
+        recordEvent.setEventId(RecordEvent.RECORD_ADDED);
+        sendEvent(recordEvent);
+        
     }
 
     /**
