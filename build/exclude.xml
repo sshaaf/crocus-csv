@@ -1,14 +1,5 @@
 <! -- ======================================================== -->
-<! -- //slegge/build/exclude.xml                               -->
+<! -- //exclude.xml                               -->
 <! -- ======================================================== -->
-<! -- This file contains a list of files which                 -->
-<! -- need to be excluded from the compile.                    -->
-<! -- The format for this file is as follows:                  -->
-<! -- ** is a wildcard which matches any number of directories -->
-<! -- * is a wildcard which matches any number of characters   -->
-<! -- ======================================================== -->
-<! -- example: exclude all files in the directory sdm and      -->
-<! --          any file which begins with Rmi and              -->
-<! --          the file .../sde/working.java                   -->
 <! -- **/csv/**                                                -->
 <! -- ======================================================== -->
