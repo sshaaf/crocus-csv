@@ -1,9 +1,9 @@
 package com.crocus.examples.csv;
 
-import com.crocus.examples.csv.record.AbstractCSVRecordManager;
-import com.crocus.examples.csv.record.CSVRecordManager;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
+import com.crocus.examples.csv.record.AbstractCSVRecordManager;
 
 /**
  * <p>
