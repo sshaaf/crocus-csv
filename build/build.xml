@@ -16,8 +16,8 @@
 	<property name="debug.flag" value="on" />
 	<property name="deprecation" value="off" />
 	<property name="javac.list" value="false" />
-	<property name="include.xml" value="${build}/include.xml" />
-	<property name="exclude.xml" value="${build}/exclude.xml" />
+	<property name="include" value="${build}/include" />
+	<property name="exclude" value="${build}/exclude" />
 
 
 	<!-- ***** Jar ***** -->
@@ -43,8 +43,8 @@
 	<property name="testDataDir" value="testData" />
 	<property name="testoutput" value="${build_results}/tests" />
 	<property name="reportdir" value="${testoutput}" />
-	<property name="tests.include" value="${build}/tests_include.xml" />
-	<property name="tests.exclude" value="${build}/tests_exclude.xml" />
+	<property name="tests.include" value="${build}/tests_include" />
+	<property name="tests.exclude" value="${build}/tests_exclude" />
 
 
 	<path id="CROCUS.classpath">
@@ -95,7 +95,7 @@
 	<!-- Compile the source -->
 	<target name="compileonly" depends="init" description="compile the source">
 		<echo message="compiling source code in ${src}" />
-		<javac srcdir="${src}" destdir="${classes}" listfiles="${javac.list}" debug="${debug.flag}" nowarn="on" debuglevel="lines,source" includesfile="${include.xml}" excludesfile="${exclude.xml}" deprecation="${deprecation}" classpathref="CROCUS.classpath">
+		<javac srcdir="${src}" destdir="${classes}" listfiles="${javac.list}" debug="${debug.flag}" nowarn="on" debuglevel="lines,source" includesfile="${include}" excludesfile="${exclude}" deprecation="${deprecation}" classpathref="CROCUS.classpath">
 		</javac>
 	</target>
 	

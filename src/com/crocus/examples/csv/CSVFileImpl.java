@@ -15,16 +15,12 @@ package com.crocus.examples.csv;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
 
 import com.crocus.examples.csv.record.AbstractCSVRecordManager;
-import com.crocus.examples.csv.record.CSVRecordManager;
 import com.crocus.examples.csv.record.RecordManagerFactory;
-import java.io.IOException;
-import java.io.FileWriter;
-import java.io.FileOutputStream;
-import java.io.BufferedWriter;
-import java.io.PrintStream;
-import com.crocus.examples.csv.record.CSVRecord;
 
 public class CSVFileImpl extends File implements CSVFile {
 
@@ -32,9 +28,9 @@ public class CSVFileImpl extends File implements CSVFile {
 
 	private AbstractCSVRecordManager csvRecordManager = null;
 
-	private FileWriter fWriter = null;
-
-	private BufferedWriter bWriter = null;
+//	private FileWriter fWriter = null;
+//
+//	private BufferedWriter bWriter = null;
 
 	private FileOutputStream out; // declare a file output object
 
