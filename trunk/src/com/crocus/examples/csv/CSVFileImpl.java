@@ -28,15 +28,13 @@ public class CSVFileImpl extends File implements CSVFile {
 
 	private AbstractCSVRecordManager csvRecordManager = null;
 
-//	private FileWriter fWriter = null;
-//
-//	private BufferedWriter bWriter = null;
-
 	private FileOutputStream out; // declare a file output object
 
 	private PrintStream p; // declare a print stream object
 
 	private char deliminator;
+	
+	public boolean isFirstRowNames = false;
 
 	/**
 	 * Get the File from the path mentioned in String
@@ -51,6 +49,17 @@ public class CSVFileImpl extends File implements CSVFile {
 		this.deliminator = deliminator;
 		csvRecordManager = RecordManagerFactory.getInstance()
 				.getDefaultRecordManager();
+	}
+	
+	
+	public CSVFileImpl(String fileName, char deliminator,
+			boolean isFirstRowNames) throws FileNotFoundException {
+		super(fileName);
+		this.deliminator = deliminator;
+		this.isFirstRowNames = isFirstRowNames;
+		csvRecordManager = RecordManagerFactory.getInstance()
+				.getDefaultRecordManager();
+		csvRecordManager.setFirstRowNames(isFirstRowNames);
 	}
 
 	/**
@@ -70,6 +79,15 @@ public class CSVFileImpl extends File implements CSVFile {
 		this.csvRecordManager = csvRecordManager;
 	}
 
+	public CSVFileImpl(String fileName, char deliminator,
+			AbstractCSVRecordManager csvRecordManager, boolean isFirstRowNames)
+			throws FileNotFoundException {
+		super(fileName);
+		this.deliminator = deliminator;
+		this.isFirstRowNames = isFirstRowNames;
+		this.csvRecordManager = csvRecordManager;
+	}
+	
 	/**
 	 * 
 	 * @throws FileNotFoundException
@@ -109,4 +127,13 @@ public class CSVFileImpl extends File implements CSVFile {
 		return this.deliminator;
 	}
 
+	@Override
+	public boolean isFirstRowNames() {
+		return isFirstRowNames;
+	}
+
+	protected void setFirstRowNames(boolean isFirstRowNames) {
+		this.isFirstRowNames = isFirstRowNames;
+	}
+	
 }

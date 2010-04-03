@@ -2,6 +2,9 @@ package com.crocus.examples.csv.record;
 
 import com.crocus.examples.csv.fields.CSVField;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * <p>
@@ -33,10 +36,16 @@ public class CSVRecordImpl extends CSVRecord {
 	private ArrayList<CSVField> fieldList = null;
 
 	public CSVRecordImpl() {
+		super();
 		fieldList = new ArrayList<CSVField>();
-
 	}
 
+	public CSVRecordImpl(char DELIMINATOR) {
+		super(DELIMINATOR);
+		fieldList = new ArrayList<CSVField>();
+	}
+
+	
 	/**
 	 * 
 	 * @param csvField
@@ -118,11 +127,28 @@ public class CSVRecordImpl extends CSVRecord {
 		return false;
 	}
 
+	
+	public boolean containsInField(Pattern pattern){
+		for (CSVField a : fieldList){
+			Matcher matcher = pattern.matcher(a.toString());
+			if (matcher.matches())
+				return true;
+		}
+		return false;
+	}
+	
+	public boolean containsInRecord(Pattern pattern){
+		Matcher matcher = pattern.matcher(this.toString());
+		if (matcher.matches())
+			return true;
+		
+		return false;
+	}
+	
 	public String toString() {
 		String tempString = fieldList.get(0).toString();
 		for (int i = 0; i < this.getColumnCount(); i++) {
-			tempString += "," + fieldList.get(i);
-
+			tempString += DELIMINATOR + "" + fieldList.get(i);
 		}
 		return tempString;
 	}
@@ -134,5 +160,9 @@ public class CSVRecordImpl extends CSVRecord {
 
 		}
 		return tempString;
+	}
+	
+	public Collection<CSVField> getFields(){
+		return fieldList;
 	}
 }

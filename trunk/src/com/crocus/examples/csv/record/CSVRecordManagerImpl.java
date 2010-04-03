@@ -2,6 +2,7 @@ package com.crocus.examples.csv.record;
 
 import java.util.Collection;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import com.crocus.examples.csv.event.RecordEvent;
 import com.crocus.examples.csv.fields.CSVField;
@@ -42,6 +43,8 @@ public class CSVRecordManagerImpl extends CSVRecordManager {
 	private int COLUMN_COUNT = 0;
 
 	private boolean isMultipleFileSupported = false;
+	
+	private boolean isFirstRowNames = false;
 
 	// private static CSVRecordManagerImpl manager;
 
@@ -110,11 +113,12 @@ public class CSVRecordManagerImpl extends CSVRecordManager {
 
 	/**
 	 * 
-	 * @param columnIndex
-	 *            int
+	 * @param columnIndex int
+	 * Unimplemented
 	 * @return Object[]
 	 */
-	public Object[] getColumn(int columnIndex) {
+	private Object[] getColumn(int columnIndex) {
+		
 		return null;
 	}
 
@@ -130,6 +134,103 @@ public class CSVRecordManagerImpl extends CSVRecordManager {
 		return recordList;
 	}
 
+	
+	/**
+	 * 
+	 * Get ColumnNames
+	 * If firstRow is not columns returns null
+	 * @return CSVRecord
+	 */
+	public CSVRecord getColumnNames(){
+		if(isFirstRowNames)
+			return recordList.get(0);
+		else 
+			return null;
+	}
+	
+
+	public boolean isFirstRowNames() {
+		return isFirstRowNames;
+	}
+
+	public void setFirstRowNames(boolean isFirstRowNames) {
+		this.isFirstRowNames = isFirstRowNames;
+	}
+	
+	public Collection<CSVRecord> getRecordsByField(Pattern pattern){
+		
+		ArrayList<CSVRecord> searchResults = new ArrayList<CSVRecord>();
+		for(CSVRecord record: recordList)
+			if(record.containsInField(pattern))
+				searchResults.add(record);
+		
+		return searchResults;
+	}
+	
+	public Collection<CSVRecord> getRecords(Pattern pattern){
+		ArrayList<CSVRecord> searchResults = new ArrayList<CSVRecord>();
+		for(CSVRecord record: recordList)
+			if(record.containsInRecord(pattern))
+				searchResults.add(record);
+		
+		return searchResults;
+	}
+	
+
+	public String getXML(Collection<CSVRecord> recordsList){
+		if(isFirstRowNames){
+		StringBuffer buffer = new StringBuffer();
+		buffer.append("<result>");
+		CSVRecord columnNames = getColumnNames();
+		
+		for(CSVRecord record: recordsList){
+			buffer.append("<row>");
+			Collection<CSVField> fields = record.getFields();
+			int i = 0;
+			for(CSVField field: fields){
+				buffer.append("<"+columnNames.getColumn(i)+">");
+				buffer.append(field.getValue());
+				buffer.append("</"+columnNames.getColumn(i)+">");
+				i++;
+			}
+			buffer.append("</row>");
+		}
+		buffer.append("</result>");
+		
+		return buffer.toString();
+		}
+		return null;
+	}
+	
+	
+	public String getJSON(Collection<CSVRecord> recordsList){
+		if(isFirstRowNames){
+		StringBuffer buffer = new StringBuffer();
+		buffer.append("{\"result\":");
+		CSVRecord columnNames = getColumnNames();
+		
+		for(CSVRecord record: recordsList){
+			buffer.append("{\"row\":");
+			buffer.append("{");
+			Collection<CSVField> fields = record.getFields();
+			int i = 0;
+			for(CSVField field: fields){
+				buffer.append("\""+columnNames.getColumn(i)+"\":");
+				buffer.append("\""+field.getValue()+"\"");
+				if(i < fields.size()-1)
+					buffer.append(",");
+				i++;
+			}
+			buffer.append("}");
+			buffer.append("}");
+		}
+		buffer.append("}");
+		
+		return buffer.toString();
+		}
+		return null;
+	}
+	
 	/**
 	 * 
 	 * @return CSVRecord

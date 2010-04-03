@@ -41,15 +41,11 @@ public class CSVFieldReader extends AbstractCSVFieldReader {
 	public CSVFieldReader(char[] charLine) {
 		super(charLine);
 		csvRecord = RecordManagerFactory.getInstance().getNewRecord();
-		// csvRecord =
-		// CrocusStatics.getInstance().getRecordManager().getNewRecord();
 	}
 
 	public CSVFieldReader(char[] charLine, char deliminator) {
 		super(charLine, deliminator);
 		csvRecord = RecordManagerFactory.getInstance().getNewRecord();
-		// csvRecord =
-		// CrocusStatics.getInstance().getRecordManager().getNewRecord();
 	}
 
 	public CSVFieldReader(char[] charLine, char deliminator, CSVRecord csvRecord) {
@@ -64,7 +60,6 @@ public class CSVFieldReader extends AbstractCSVFieldReader {
 		while (counter < charLine.length) {
 			csvRecord.addField(FieldFactory.getInstance().getType(getField()));
 		}
-		// CrocusStatics.getInstance().getRecordManager().addRecord(csvRecord);
 		return csvRecord;
 	}
 
