@@ -44,4 +44,8 @@ public class RecordManagerFactory {
 		return new CSVRecordImpl();
 	}
 
+	public CSVRecord getNewRecord(char DELIMINATOR) {
+		return new CSVRecordImpl(DELIMINATOR);
+	}
+	
 }

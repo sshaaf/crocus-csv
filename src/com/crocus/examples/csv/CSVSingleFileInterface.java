@@ -43,6 +43,11 @@ public class CSVSingleFileInterface implements CSVReadInterface {
 		csvFile = new CSVFileImpl(fileName, deliminator);
 	}
 
+	public CSVSingleFileInterface(String fileName, char deliminator, boolean isFirstRowNames)
+	throws FileNotFoundException {
+		csvFile = new CSVFileImpl(fileName, deliminator, isFirstRowNames);
+	}
+	
 	public CSVSingleFileInterface(AbstractCSVFileSet csvFileSet) {
 
 	}
@@ -57,6 +62,10 @@ public class CSVSingleFileInterface implements CSVReadInterface {
 		csvFile = new CSVFileImpl(fileName, CSVConstants.COMMA);
 	}
 
+	public CSVSingleFileInterface(String fileName, boolean isFirstRowNames) throws FileNotFoundException {
+		csvFile = new CSVFileImpl(fileName, CSVConstants.COMMA, isFirstRowNames);
+	}
+	
 	/**
 	 * 
 	 * @param fileName
@@ -72,6 +81,11 @@ public class CSVSingleFileInterface implements CSVReadInterface {
 		csvFile = new CSVFileImpl(fileName, deliminator, csvRecordManager);
 	}
 
+	public CSVSingleFileInterface(String fileName, char deliminator,
+			CSVRecordManager csvRecordManager, boolean isFirstRowNames) throws FileNotFoundException {
+		csvFile = new CSVFileImpl(fileName, deliminator, csvRecordManager, isFirstRowNames);
+	}
+	
 	/**
 	 * 
 	 * @return CSVRecordManager

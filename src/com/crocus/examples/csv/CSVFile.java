@@ -33,4 +33,6 @@ public interface CSVFile {
 	public void write() throws IOException;
 
 	public char getDeliminator();
+	
+	public boolean isFirstRowNames();
 }

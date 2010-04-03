@@ -3,6 +3,7 @@ package com.crocus.examples.csv.record;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.regex.Pattern;
 
 import com.crocus.examples.csv.event.RecordEvent;
 import com.crocus.examples.csv.event.RecordListener;
@@ -83,7 +84,7 @@ public abstract class AbstractCSVRecordManager implements Serializable {
 	 *            int
 	 * @return Object[]
 	 */
-	public abstract Object[] getColumn(int columnIndex);
+	private Object[] getColumn(int columnIndex){ return null; };
 
 	public abstract CSVRecord getRow(int rowIndex);
 
@@ -161,4 +162,19 @@ public abstract class AbstractCSVRecordManager implements Serializable {
 		return eventAsync;
 	}
 
+	public abstract Collection<CSVRecord> getRecords(Pattern pattern);
+	
+	public abstract Collection<CSVRecord> getRecordsByField(Pattern pattern);
+	
+	
+	public abstract CSVRecord getColumnNames();
+
+	public abstract boolean isFirstRowNames();
+
+	public  abstract void setFirstRowNames(boolean isFirstRowNames);
+	
+	public abstract String getXML(Collection<CSVRecord> recordsList);
+	
+	public abstract String getJSON(Collection<CSVRecord> recordsList);
+	
 }
