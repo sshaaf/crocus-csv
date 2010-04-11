@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<project name="Crocus" default="compile" basedir="..">
+<project name="Crocus" default="all" basedir="..">
 	<description>This is a build file for Crocus CSV Reader</description>
 	<!-- ======================================================== -->
 	<!-- Properties                                               -->
@@ -148,38 +148,37 @@
 	
 	<!-- run junit tests -->
 	<!-- forkmode="perTest" -->
-	<target name="tests" depends="compileonly" description="runs JUnit tests">
-		<echo message="running JUnit tests" />
-		<junit printsummary="on" dir="${CROCUS_DEV}" haltonfailure="off" haltonerror="off" timeout="${junit.timeout}" fork="on" maxmemory="512m" showoutput="true">
-			<sysproperty key="TEST_PROPERTY_FILE" value="${test.prop.file}" />
-			<sysproperty key="CROCUS_DEV" value="${basedir}" />
-			<formatter type="plain" usefile="false" />
-			<formatter type="xml" usefile="true" />
-			<batchtest todir="${testoutput}" filtertrace="off">
-				<fileset dir="${src}">
-					<includesfile name="${tests.include}" />
-					<excludesfile name="${tests.exclude}" />
-				</fileset>
-			</batchtest>
-			<classpath>
-				<pathelement path="${classes}" />
-				<pathelement path="${build.classpath}" />
-			</classpath>
-		</junit>
-		<!--
-    <echo message="running JUnit Reports"/>
-   <junitreport todir="${reports}">
-      <fileset dir="${reportdir}">
-        <include name="TEST*.xml"/>
-      </fileset>
-      <report format="frames" todir="${reports}"/>
-    </junitreport>
 
-    <echo message="To see your Junit results, please open ${reports}/index.html}"/>
--->
-		
-		
-	</target>
+	 <target name="tests" depends="compileonly" description="runs JUnit tests" >
+	    <echo message="running JUnit tests" />
+	    <junit printsummary="on" dir=".." haltonfailure="off" haltonerror="off" timeout="${junit.timeout}" fork="on" maxmemory="512m" showoutput="true">
+	      <formatter type="plain" usefile="false"/>
+	      <formatter type="xml" usefile="true"/>
+	      <batchtest todir="${testoutput}" filtertrace="off">
+	        <fileset dir="${src}">
+	          <includesfile name="${tests.include}"/>
+	          <excludesfile name="${tests.exclude}"/>
+	        </fileset>
+	      </batchtest>
+	      <classpath>
+	        <pathelement path="${classes}"/>
+	        <pathelement path="${build.classpath}"/>
+	      </classpath>
+	    </junit>
+
+	 <echo message="running JUnit Reports"/>
+	   <junitreport todir="${reports}">
+	      <fileset dir="${reportdir}">
+	        <include name="Test*.xml"/>
+	      </fileset>
+	      <report format="frames" todir="${reports}"/>
+	    </junitreport>
+	    <echo message="To see your Junit results, please open ${reports}/index.html}"/>
+	  </target>
+
+	
+	
+	
 	<target name="compile" depends="init,compileonly" />
 	<target name="jar" depends="jaronly" />
 	<target name="do_javadoc" depends="javadoc" />
